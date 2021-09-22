@@ -1,0 +1,68 @@
+volumes:
+  pg-data:
+  pgadmin-data:
+
+networks:
+  postgres-network:
+    driver: bridge
+
+services:
+  app_python:
+    restart: always
+    image: ${APP_PROJECT}/${APP_SUB_PROJECT}:${APP_VERSION}
+    hostname: ${APP_HOSTNAME}
+    container_name: ${APP_CONTAINER_NAME}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    build:
+      context: docker
+      dockerfile: ./docker/app_python/Dockerfile
+    env_file:
+      - ./docker/config/env.dev
+    volumes:
+      - ./app_python/:/app/
+    ports:
+      - "8000:8080"
+    command: python manage.py runserver 0.0.0.0:${APP_RUNNING_SERVER_PORT}
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
+
+  postgres:
+    restart: always
+    image: postgres:12.5-alpine
+    hostname: postgres-server
+    container_name: postgres-container
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: ${POSTGRES_DATA}
+    volumes:
+      - pg-data:${POSTGRES_DATA}
+      - ${INIT_DB_LOCAL_DIR}/${INIT_DB_SCHEMA}:${INIT_DB_DOCKER_DIR}/${INIT_DB_SCHEMA}
+      - ${INIT_DB_LOCAL_DIR}/${INIT_DB_DATA}:${INIT_DB_DOCKER_DIR}/${INIT_DB_DATA}
+    networks:
+      - postgres-network
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    restart: always
+    image: dpage/pgadmin4:4.30
+    hostname: pgadmin-server
+    container_name: pgadmin-container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:${PGADMIN_DATA}
+    networks:
+      - postgres-network
+    links:
+      - "postgres:postgres-server"
