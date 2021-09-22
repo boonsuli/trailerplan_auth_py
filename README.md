@@ -12,7 +12,8 @@ In this backend project the feature are :
 - the password encoded in base 64 in the database postgres
 - the data transfer for the password with the front end is also base 64 encoded
 - when the user authenticated a json web token generated
-- the api can be test with : the front end Angular, swagger ui, django rest admin 
+- the api can be test with : the front end Angular (https://github.com/boonsuli/trailerplan-login-ng),
+  swagger ui, django rest admin 
 - python application and postgresql database are containerized in docker images
 
 ##2. The version of the tools api are : 
