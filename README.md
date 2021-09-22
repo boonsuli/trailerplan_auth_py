@@ -1,5 +1,5 @@
 # Trailerplan-login-rest
-##1. Summary
+## 1. Summary
 This project is a connection rest API designed with the django rest framework. It can be used with an front end designed with Angular, the repository is https://github.com/boonsuli/trailerplan-login-ng. 
 In this backend project the feature are : 
 - login (signin)
@@ -7,16 +7,16 @@ In this backend project the feature are :
 - register a new user with profile user or guest (signup)
 - an API for the forgotten password in order to obtain this one when the user does not remember it anymore. When the user subscribes using a reactive form, he must give 3 answers for 3 secret questions. This is in order to obtain the password when it no longer remembers it.
   There is also a custom question and answer that he needs to fill.
-- change password api. The password can't be the same the 3 old.
+- change password api. The password can't be the same the 3 old (not implemented)
 - the password must respect a format. You need: a lowercase letter, an uppercase letter, a number and a non-alphanumeric character.
 - the password encoded in base 64 in the database postgres
 - the data transfer for the password with the front end is also base 64 encoded
 - when the user authenticated a json web token generated
 - the api can be test with : the front end Angular (https://github.com/boonsuli/trailerplan-login-ng),
-  swagger ui, django rest admin 
-- python application and postgresql database are containerized in docker images
+  swagger ui, django rest admin
+- python application and postgresql database containerized in docker images
 
-##2. The version of the tools api are : 
+## 2. The version of the tools api are : 
 - Python 3.8.10
   - Django 3.1.7
   - Djangorestframework 3.12.2
@@ -28,8 +28,8 @@ In this backend project the feature are :
 
 The application was developed on Linux Mint 20.04 (Ulyana)
 
-##3. To run the docker images for the database and client 
-###3.1. database postgres
+## 3. To run the docker images for the database and client 
+### 3.1. database postgres
 To run the database on docker using docker-compose :
 ```docker-compose --env-file ./docker/config/env.dev --log-level debug up -d --build postgres &```
 
@@ -53,7 +53,7 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED          
  2021-09-02 14:28:59.105 UTC [1] LOG:  database system is ready to accept connections
 ```
 
-###3.2. database client pgadmin
+### 3.2. database client pgadmin
 To run the database client on docker using docker-compose :
 ```docker-compose --env-file ./docker/config/env.dev --log-level debug up -d --build pgadmin &```
 
@@ -66,7 +66,7 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED          
 5632db03a4d3   postgres:12.5-alpine   "docker-entrypoint.s…"   18 minutes ago   Up 18 minutes   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp        postgres-container
 ```
 
-####3.2.1. connect to the database postgres
+#### 3.2.1. connect to the database postgres
 In a browser open the url: http://localhost:5050.
 Log in with the credential : username:postgres@trailerplan.com and password:P@55w*rD
 Add a new server in the database connection tree like this:
@@ -78,8 +78,8 @@ After that we need to fill some detail of the connection :
 When the connection is created, the database and tables can be browsed.
 ![trailerplan database](./docs/images/pgadmin-trailerplan-database.png)
 
-##4. Configuring the django python application
-##4.1 Exporting the data model from the existing database
+## 4. Configuring the django python application
+## 4.1 Exporting the data model from the existing database
 The current model is a data model exported from the postgres database.
 The command to export the model was :
 ```shell
@@ -135,7 +135,7 @@ Verify that the user was created in the database :
 ![django admin user](./docs/images/pgadmin-django-admin-user.png)
 
 
-##4.2 Update the setting regarding the logs:
+## 4.2 Update the setting regarding the logs:
 Logging settings for the module trailerplan login module ```~/trailerplan_auth_py/settings.py``` :
 ```shell
 LOGGING = {
@@ -178,10 +178,10 @@ INFO 2021-09-06 16:10:55,520 views get user with id=1
 INFO 2021-09-06 16:10:55,525 basehttp "GET /users/1/ HTTP/1.1" 200 347
 ```
 
-##4.3
+## 4.3
 Update the application part : urls and view
 
-###4.3.1 urls
+### 4.3.1 urls
 ```~/app_python/urls.py``` :
 ```shell
 from django.conf.urls import url
@@ -195,21 +195,21 @@ urlpatterns = [
 ]
 ```
 
-###4.3.2 view
+### 4.3.2 view
 In this part, we separate each url in one view. In order to have an implementation of each http method per function.
 
 This view ```~/app_python/views/user_view.py``` is related to the url 'user-detail' with the method http GET, PUT, DELETE.
 This view ```~/app_python/views/users_view.py``` is related to the url 'user-list' with the method http GET, POST, DELETE.
 
 
-##4.4 Django admin
+## 4.4 Django admin
 The django admin website can be accessed by the url : http://localhost:8000/admin
 
-##5. Running the application
+## 5. Running the application
 After configuring the application and the database, we can run the app. I use the command prompt or PyCharm in 
 debug mode.
 
-###5.1 in command prompt
+### 5.1 in command prompt
 ```shell
 ~/trailerplan_auth_py$: python3 manage.py runserver
 ```
@@ -218,7 +218,7 @@ or launch the application in PyCharm :
 ![running app in pycharm](./docs/images/pycharm-run-debug.png)
 
 
-###5.2 testing
+### 5.2 testing
 In another terminal, if the app is launch in a terminal ;-) :
 
 
