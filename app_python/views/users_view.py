@@ -3,7 +3,10 @@ import logging
 from django.http import JsonResponse
 from django.views import View
 from rest_framework import status
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.parsers import JSONParser
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from app_python.models import User
 from app_python.serializers import UserSerializer
@@ -11,7 +14,10 @@ from app_python.serializers import UserSerializer
 logger = logging.getLogger(__name__)
 
 
-class UsersView(View):
+class UsersView(RetrieveAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (JSONWebTokenAuthentication,)
+    serializer_class = UserSerializer
 
     def get(self, request, *args, **kwargs):
         logger.info('GET - get list of users')
