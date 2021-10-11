@@ -32,3 +32,14 @@ create table trailerplan_schema.USER (
     CREATED_AT timestamp,
     UPDATED_AT timestamp
 );
+
+create table trailerplan_schema.USER_GROUPS (
+    user_id integer,
+    group_id integer,
+    permissions integer
+);
+
+create table trailerplan_schema.user_user_permissions (
+    permission_id integer,
+    user_id integer
+);

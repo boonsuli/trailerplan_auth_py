@@ -137,8 +137,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # the password send is encoded in base64
     def check_password(self, password):
+        logger.info(f"user '{self.username}' password : {self.password} - password to check: {password}")
         is_correct = super().check_password(base64.b64decode(password))
-        logger.info(f"user '{self.username}' password : {self.password} - password in base64: {password}")
         if is_correct:
             return True
         else:

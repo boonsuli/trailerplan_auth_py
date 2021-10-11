@@ -11,7 +11,8 @@
 
 #Python authentication API for TrailerPlan
 ## 1. Summary
-This project is a connection rest API designed with the django rest framework. It can be used with an front end designed with Angular, the repository is https://github.com/boonsuli/trailerplan-login-ng. 
+This project is a connection rest API designed with the django rest framework. It can be used with a front end designed 
+with Angular, the repository is <https://github.com/boonsuli/trailerplan-login-ng>. 
 
 In this backend project the features are : 
 - login (signin)
@@ -24,7 +25,7 @@ In this backend project the features are :
 - the data transfer for the password with the front end is in base 64 encoded
 - the password stored in postgres with the standard django procedure. In this project the hasher algorithm is PBKDF2.  
 - when the user authenticated a json web token generated
-- the api can be test with : the front end Angular (https://github.com/boonsuli/trailerplan-login-ng),
+- the api can be test with : the front end Angular (<https://github.com/boonsuli/trailerplan-login-ng>),
   swagger ui, django rest admin and curl
 - python application and postgresql database containerized in docker images
 
@@ -344,18 +345,23 @@ The token is in the attribute ```Authorisation``` and the value must be prefixed
 parameter ```JWT_AUTH_HEADER_PREFIX``` in the ```JWT_AUTH``` object in settings.
 
 
-
 # 6. Json Web Token settings - secure with custom user tables
 There are two ways in order to solve this feature :
 - inherit the standard user model
 - replace the exiting user model by another one
 
-In this project, we choose the second solution. The user's passwords stored in the standard way. In the settings :
+In this project, we choose the second solution. The user's passwords stored in the standard python way 
+(django.contrib.auth.hashers.PBKDF2PasswordHasher) . It not need to specify in the settings because it is by default.
+
+
+## 6.1. Settings
+In the app settings, the user model replaced by a custom model:
 
 ```shell
 AUTH_USER_MODEL = 'app_python.User'
 ```
 
+## 6.2. Restart docker container
 We can recreate the database : 
 - stop the container :
 ```shell
@@ -391,75 +397,46 @@ We can recreate the database :
 ~/trailerplan_auth_py$: docker-compose --env-file ./docker/config/env.dev --log-level debug up -d --build pgadmin
 ```
 
+## 6.3. Access to django admin in order to create new users
+
+we can also use the django admin site in http://localhost:8000/admin :
+![djangoadmin_login](./docs/images/djangoadmin-login.png)
+the credential created before admin@trailerplan.com/P@55w*rD
+
+We can see the users in django admin :
+![djangoadmin-users](./docs/images/djangoadmin-users.png)
 
 
+After adding a user in django admin by the last fake user in 4.2. :
+
+username : FNameFake_create.LNameFake_create@trailerplan.com
+Password : choose a password
+Password confirmation : confirm the password
+
+![djangoadmin-create-newFakeUser](./docs/images/djangoadmin-create-newFakeUser.png)
 
 
-make migrations:
-```shell
-~/trailerplan_auth_py$: python3 manage.py makemigrations
-Migrations for 'app_python':
-  app_python/migrations/0001_initial.py
-    - Create model User
-```
+We can update the additional information 1st part: first_name, last_name and email
+![djangoadmin-create-newFakeUser-afterSubmit1](./docs/images/djangoadmin-create-newFakeUser-afterSubmit1.png)
 
-migrate :
-```shell
-~/trailerplan_auth_py$: python3 manage.py migrate
-Operations to perform:
-  Apply all migrations: admin, app_python, auth, authtoken, contenttypes, sessions
-Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying app_python.0001_initial... OK
-  Applying admin.0001_initial... OK
-  Applying admin.0002_logentry_remove_auto_add... OK
-  Applying admin.0003_logentry_add_action_flag_choices... OK
-  Applying contenttypes.0002_remove_content_type_name... OK
-  Applying auth.0001_initial... OK
-  Applying auth.0002_alter_permission_name_max_length... OK
-  Applying auth.0003_alter_user_email_max_length... OK
-  Applying auth.0004_alter_user_username_opts... OK
-  Applying auth.0005_alter_user_last_login_null... OK
-  Applying auth.0006_require_contenttypes_0002... OK
-  Applying auth.0007_alter_validators_add_error_messages... OK
-  Applying auth.0008_alter_user_username_max_length... OK
-  Applying auth.0009_alter_user_last_name_max_length... OK
-  Applying auth.0010_alter_group_name_max_length... OK
-  Applying auth.0011_update_proxy_permissions... OK
-  Applying auth.0012_alter_user_first_name_max_length... OK
-  Applying authtoken.0001_initial... OK
-  Applying authtoken.0002_auto_20160226_1747... OK
-  Applying authtoken.0003_tokenproxy... OK
-  Applying sessions.0001_initial... OK
-```
+2nd part : 
+![djangoadmin-create-newFakeUser-afterSubmit1](./docs/images/djangoadmin-create-newFakeUser-afterSubmit2.png)
 
-Now in the database we don't have the django user table :
+We can finally submit the update :
+![djangoadmin-create-newFakeUser-afterSubmit1](./docs/images/djangoadmin-create-newFakeUser-completed.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We can go to pgadmin to list the user created with django admin. In the sql request the other field are not showing
+because they are null or empty :
+![pgadmin-get-admin-and-fakeUser-fromPgadmin](./docs/images/pgadmin-get-admin-and-fakeUser-fromPgadmin.png)
 
 
 
 Resources : 
-- https://docs.djangoproject.com/en/3.1/
+- https://docs.djangoproject.com/en/3.2/
+  https://docs.djangoproject.com/en/3.2/topics/auth/passwords/
+  https://docs.djangoproject.com/en/3.2/topics/auth/default/
+- https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
+  https://docs.python.org/fr/3.8/tutorial/
 - https://www.django-rest-framework.org/
 - https://www.metaltoad.com/blog/angular-api-calls-django-authentication-jwt
 - https://medium.com/swlh/django-angular-4-a-powerful-web-application-60b6fb39ef34
@@ -470,4 +447,3 @@ Resources :
 - https://humberto.io/blog/jwt-authentication-with-angular-and-django/
 - https://jpadilla.github.io/django-rest-framework-jwt/
 - https://thinkster.io/tutorials/django-json-api/authentication
-- https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
