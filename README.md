@@ -236,7 +236,7 @@ In another terminal, if the app is launch in a terminal ;-) :
 ~/trailerplan_auth_py$: curl http://localhost:8000/api/users/1
 {"id": 1, "civility": "Mister", "first_name": "Kilian", "last_name": "Jornet", "gender": "MALE", "birthday": "1987-10-27", "mail": "kilian.jornet@gmail.com", "city": "Sabadell", "country": "Spain", "phone": null,
 "user_category": "USER", "role_type": "STANDARD", "user_name": "kilian.jornet@gmail.com", "login_type": "MAIL", 
-"encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "Q2hhbW9uaXgK", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
+"encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "Q2hhbW9uaXgK", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
 ```
 
 in the application logs:
@@ -248,17 +248,17 @@ INFO 2021-09-22 09:28:39,985 basehttp "GET /api/users/19 HTTP/1.1" 200 676
 - GET all user :
 ```shell
 ~/trailerplan_auth_py$: curl http://localhost:8000/api/users
-[{"id": 1, "civility": "Mister", "first_name": "Kilian", "last_name": "Jornet", "gender": "MALE", "birthday": "1987-10-27", "mail": "kilian.jornet@gmail.com", "city": "Sabadell", "country": "Spain", "phone": null, "user_category": "USER", "role_type": "STANDARD", "user_name": "kilian.jornet@gmail.com", "login_type": "MAIL", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "Q2hhbW9uaXgK", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
-{"id": 2, "civility": "Mister", "first_name": "Sebastien", "last_name": "Chaigneau", "gender": "MALE", "birthday": "1972-02-23", "mail": "sebastien.chaigneau@gmail.com", "city": "Ch\u00e2tellerault", "country": "France", "phone": "+33612345678", "user_category": "USER", "role_type": "STANDARD", "user_name": "+33612345678", "login_type": "MSISDN", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "T3Nsbwo=", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
-{"id": 3, "civility": "Miss", "first_name": "Caroline", "last_name": "Chaverot", "gender": "FEMALE", "birthday": "1976-10-16", "mail": "caroline.chaverot@gmail.com", "city": "Gen\u00e8ve", "country": "Swiss", "phone": null, "user_category": "USER", "role_type": "STANDARD", "user_name": "123456", "login_type": "USER_NUMBER", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QW1zdGVyZGFtCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
+[{"id": 1, "civility": "Mister", "first_name": "Kilian", "last_name": "Jornet", "gender": "MALE", "birthday": "1987-10-27", "mail": "kilian.jornet@gmail.com", "city": "Sabadell", "country": "Spain", "phone": null, "user_category": "USER", "role_type": "STANDARD", "user_name": "kilian.jornet@gmail.com", "login_type": "MAIL", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "Q2hhbW9uaXgK", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
+{"id": 2, "civility": "Mister", "first_name": "Sebastien", "last_name": "Chaigneau", "gender": "MALE", "birthday": "1972-02-23", "mail": "sebastien.chaigneau@gmail.com", "city": "Ch\u00e2tellerault", "country": "France", "phone": "+33612345678", "user_category": "USER", "role_type": "STANDARD", "user_name": "+33612345678", "login_type": "MSISDN", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "T3Nsbwo=", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
+{"id": 3, "civility": "Miss", "first_name": "Caroline", "last_name": "Chaverot", "gender": "FEMALE", "birthday": "1976-10-16", "mail": "caroline.chaverot@gmail.com", "city": "Gen\u00e8ve", "country": "Swiss", "phone": null, "user_category": "USER", "role_type": "STANDARD", "user_name": "123456", "login_type": "USER_NUMBER", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QW1zdGVyZGFtCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="},
 ...
 ]
 ```
 
 - POST a new user :
 ```shell
-~/trailerplan_auth_py$: curl -X POST -H "Content-Type: application/json" -d  '{"civility": "Mister", "first_name": "FNameFake_create", "last_name": "LNameFake_create", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}' http://localhost:8000/api/users
-{"id": 19, "civility": "Mister", "first_name": "FNameFake_create", "last_name": "LNameFake_create", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
+~/trailerplan_auth_py$: curl -X POST -H "Content-Type: application/json" -d  '{"civility": "Mister", "first_name": "FNameFake_create", "last_name": "LNameFake_create", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}' http://localhost:8000/api/users
+{"id": 19, "civility": "Mister", "first_name": "FNameFake_create", "last_name": "LNameFake_create", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
 ```
 
 The user saved in postgres, a sql request in pgadmin :
@@ -271,8 +271,8 @@ INFO 2021-09-22 09:17:54,438 basehttp "POST /api/users HTTP/1.1" 201 676
 
 - PUT (update) a user by id :
 ```shell
-~/trailerplan_auth_py$: curl -X PUT -H "Content-Type: application/json" -d '{"id": 19, "civility": "Mister", "first_name": "FNameFake_update", "last_name": "LNameFake_update", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}' http://localhost:8000/api/users/19
-{"id": 19, "civility": "Mister", "first_name": "FNameFake_update", "last_name": "LNameFake_update", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "cGFzc3dvcmQxMjMK", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
+~/trailerplan_auth_py$: curl -X PUT -H "Content-Type: application/json" -d '{"id": 19, "civility": "Mister", "first_name": "FNameFake_update", "last_name": "LNameFake_update", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}' http://localhost:8000/api/users/19
+{"id": 19, "civility": "Mister", "first_name": "FNameFake_update", "last_name": "LNameFake_update", "gender": "MALE", "birthday": "2021-09-01", "mail": "FNameFake_create.LNameFake_create@trailerplan.com", "city": "Paris", "country": "France", "phone": "1234567890", "user_category": "USER", "role_type": "STANDARD", "user_name": "FNameFake_create.LNameFake_create@trailerplan.com", "login_type": "MAIL", "encoded_password": "UEA1NXcqckQ=", "secret_question": "What is the city of your first job?", "encoded_secret_answer": "QmVybGluCg==", "encoded_custom_secret_question": "V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=", "encoded_custom_secret_answer": "VHJhaWwgcnVubmluZwo="}
 ```
 
 The user updated in postgres, a sql request in pgadmin :
@@ -282,7 +282,7 @@ in the application logs:
 ```shell
 INFO 2021-09-22 09:32:50,536 user_view PUT - update user by id=19
 INFO 2021-09-22 09:32:50,541 user_view user to update:
-INFO 2021-09-22 09:32:50,541 user_view {'id': 19, 'civility': 'Mister', 'first_name': 'FNameFake_update', 'last_name': 'LNameFake_update', 'gender': 'MALE', 'birthday': '2021-09-01', 'mail': 'FNameFake_create.LNameFake_create@trailerplan.com', 'city': 'Paris', 'country': 'France', 'phone': '1234567890', 'user_category': 'USER', 'role_type': 'STANDARD', 'user_name': 'FNameFake_create.LNameFake_create@trailerplan.com', 'login_type': 'MAIL', 'encoded_password': 'cGFzc3dvcmQxMjMK', 'secret_question': 'What is the city of your first job?', 'encoded_secret_answer': 'QmVybGluCg==', 'encoded_custom_secret_question': 'V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=', 'encoded_custom_secret_answer': 'VHJhaWwgcnVubmluZwo='}
+INFO 2021-09-22 09:32:50,541 user_view {'id': 19, 'civility': 'Mister', 'first_name': 'FNameFake_update', 'last_name': 'LNameFake_update', 'gender': 'MALE', 'birthday': '2021-09-01', 'mail': 'FNameFake_create.LNameFake_create@trailerplan.com', 'city': 'Paris', 'country': 'France', 'phone': '1234567890', 'user_category': 'USER', 'role_type': 'STANDARD', 'user_name': 'FNameFake_create.LNameFake_create@trailerplan.com', 'login_type': 'MAIL', 'encoded_password': 'UEA1NXcqckQ=', 'secret_question': 'What is the city of your first job?', 'encoded_secret_answer': 'QmVybGluCg==', 'encoded_custom_secret_question': 'V2hhdCBpcyB5b3VyIGZhdm9yaXRlIHNwb3J0Pwo=', 'encoded_custom_secret_answer': 'VHJhaWwgcnVubmluZwo='}
 INFO 2021-09-22 09:32:50,548 user_view user updated
 INFO 2021-09-22 09:32:50,550 basehttp "PUT /api/users/19 HTTP/1.1" 200 676
 ```
@@ -344,6 +344,27 @@ Get the user again with the token :
 The token is in the attribute ```Authorisation``` and the value must be prefixed by ```JWT``` specified in the 
 parameter ```JWT_AUTH_HEADER_PREFIX``` in the ```JWT_AUTH``` object in settings.
 
+## 5.4. Testing with Django rest framework admin
+In a browser open the url : http://localhost:8000/api-token-auth.
+
+![djangoadmin-api-token-auth](./docs/images/djangoadmin-api-token-auth.png)
+
+This user is the fake user created before, and it is deleted. We use this credential. The password is the password encoded into base64:
+```FNameFake_create.LNameFake_create@trailerplan.com/UEA1NXcqckQ=```
+This api designed to be used with an front end. The rest transfer encoded into base64.
+![djangoadmin-api-token-auth-credential](./docs/images/djangoadmin-api-token-auth-credential.png)
+
+If the credential is not valid it will have an error : 
+![djangoadmin-api-token-auth-invalid-credential](./docs/images/djangoadmin-api-token-auth-invalid-credential.png)
+
+When the credential validated :
+![djangoadmin-api-token-auth-success-credential](./docs/images/djangoadmin-api-token-auth-success-credential.png)
+
+
+## 5.5. Testing the view with the JWT token getting be django admin
+The url : http://localhost:8000/trailerplan/api/users/1
+![djangoadmin-api-user-view-failed-no-credential](./docs/images/djangoadmin-api-user-view-failed-no-credential.png)
+
 
 # 6. Json Web Token settings - secure with custom user tables
 There are two ways in order to solve this feature :
@@ -351,8 +372,7 @@ There are two ways in order to solve this feature :
 - replace the exiting user model by another one
 
 In this project, we choose the second solution. The user's passwords stored in the standard python way 
-(django.contrib.auth.hashers.PBKDF2PasswordHasher) . It not need to specify in the settings because it is by default.
-
+(django.contrib.auth.hashers.PBKDF2PasswordHasher) . It's not need to specify in the settings because it is by default.
 
 ## 6.1. Settings
 In the app settings, the user model replaced by a custom model:
@@ -406,8 +426,8 @@ the credential created before admin@trailerplan.com/P@55w*rD
 We can see the users in django admin :
 ![djangoadmin-users](./docs/images/djangoadmin-users.png)
 
-
 After adding a user in django admin by the last fake user in 4.2. :
+
 
 username : FNameFake_create.LNameFake_create@trailerplan.com
 Password : choose a password

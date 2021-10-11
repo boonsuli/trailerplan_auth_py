@@ -1,10 +1,9 @@
 from django.conf.urls import url
 
-from app_python.views.user_view import UserView
-from app_python.views.users_view import UsersView
 from app_python.views.auth_signin_view import AuthSigninView
 from app_python.views.auth_signup_view import AuthSignupView
-
+from app_python.views.user_view import UserView
+from app_python.views.users_view import UsersView
 
 urlpatterns = [
     url(r'^trailerplan/api/auth/signin$', AuthSigninView.as_view(), name='auth-signin'),
