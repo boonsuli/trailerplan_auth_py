@@ -68,7 +68,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(name='last_name', db_column='last_name', max_length=32)
     gender = models.CharField(name='gender', db_column='gender', max_length=10)
     email = models.EmailField(name='email', db_column='email', max_length=255, unique=True)
-    country = models.CharField(name='', db_column='', max_length=32)
+    country = models.CharField(name='country', db_column='country', max_length=32)
 
     user_category = models.CharField(name='user_category', db_column='user_category', max_length=32, blank=True, null=True)
     role_type = models.CharField(name='role_type', db_column='role_type', max_length=32, blank=True, null=True)
@@ -135,7 +135,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def normalize_username(cls, username):
         return unicodedata.normalize('NFKC', username) if isinstance(username, str) else username
 
-    # the password send is encoded in base64
+    # the password sended by the front end is encoded in base64
     def check_password(self, password):
         logger.info(f"user '{self.username}' password : {self.password} - password to check: {password}")
         is_correct = super().check_password(base64.b64decode(password))
