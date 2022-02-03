@@ -34,12 +34,14 @@ create table trailerplan_schema.USER (
 );
 
 create table trailerplan_schema.USER_GROUPS (
+    ID SERIAL PRIMARY KEY,
     user_id integer,
     group_id integer,
     permissions integer
 );
 
 create table trailerplan_schema.user_user_permissions (
+    ID SERIAL PRIMARY KEY,
     permission_id integer,
     user_id integer
 );

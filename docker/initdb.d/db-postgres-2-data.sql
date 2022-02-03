@@ -100,4 +100,3 @@ update trailerplan_schema.user set CREATED_AT=to_timestamp('01-09-2021 10:00:00'
 update trailerplan_schema.user set CREATED_AT=to_timestamp('01-09-2021 10:00:00', 'dd-mm-yyyy hh24:mi:ss') where ID=14;
 update trailerplan_schema.user set CREATED_AT=to_timestamp('01-09-2021 10:00:00', 'dd-mm-yyyy hh24:mi:ss') where ID=15;
 update trailerplan_schema.user set CREATED_AT=to_timestamp('01-09-2021 10:00:00', 'dd-mm-yyyy hh24:mi:ss') where ID=16;
-
